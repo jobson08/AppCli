@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import {
-  View,
+View,
 Text,
 StyleSheet,
 TextInput,
@@ -91,14 +91,14 @@ container: {
 },
 
 quadroLogin: {
-width: 350,
+width: 300,
 height: 500,
 backgroundColor: 'rgba(0,0,0,0.4)',
 borderWidth: 1,
 borderColor: 'steelblue',
 },
 topoPainel: {
-width: 350,
+width: 300,
 height: 40,
 backgroundColor:  'rgba(0,0,10,0.2)',
 },

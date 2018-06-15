@@ -40,7 +40,7 @@ export default class HomeScreen extends Component {
 
              <Icon
                  name='cart'
-                 style={{fontSize:30, color: Colors.Branco, marginRight:20}} />
+                 style={{fontSize:30, color: Colors.Branco, marginRight:5}} />
 
                  <Icon
                      name='arrow-forward'
@@ -71,7 +71,7 @@ export default class HomeScreen extends Component {
      fontWeight: 'bold',
    },
      quadroLogin: {
-   width: 350,
+   width: 310,
    height: 500,
    backgroundColor: 'rgba(0,0,0,0.4)',
    borderWidth: 1,
@@ -79,7 +79,7 @@ export default class HomeScreen extends Component {
    },
 
    topoPainel: {
-   width: 350,
+   width: 310,
    height: 40,
    backgroundColor:  'rgba(0,0,10,0.2)',
    flexDirection: 'row',
