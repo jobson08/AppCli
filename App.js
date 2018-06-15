@@ -16,15 +16,15 @@ import HomeScreen from './src/Screens/HomeScreen'
 import SelectProdutoScreen from './src/Screens/SelectProdutoScreen'
 import SelectFornecedorScreen from './src/Screens/SelectFornecedorScreen'
 
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
-      <DrawerNav />
+      <SelectFornecedorScreen  />
     );
   }
 }
 const DrawerNav = createStackNavigator({
-Inicial: InicialScreen,
+//Inicial: InicialScreen,
 
 Login: LoginScreen,
 
