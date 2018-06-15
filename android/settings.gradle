@@ -1,0 +1,3 @@
+rootProject.name = 'appCli'
+
+include ':app'
