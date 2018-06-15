@@ -19,7 +19,7 @@ import SelectFornecedorScreen from './src/Screens/SelectFornecedorScreen'
 export default class App extends Component {
   render() {
     return (
-      <SelectFornecedorScreen  />
+      <SelectFornecedorScreen/>
     );
   }
 }

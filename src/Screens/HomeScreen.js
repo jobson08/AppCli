@@ -8,7 +8,7 @@ import {
    TouchableOpacity,
 } from 'react-native';
 import Colors from '../styles/Colors';
-import { Container, Content, Header, Left, Right, Icon} from 'native-base';
+import { Container, Content, Header, Left, Right, Icon,Title, Body} from 'native-base';
 
 export default class HomeScreen extends Component {
   static navigationOptions={
@@ -16,13 +16,25 @@ export default class HomeScreen extends Component {
 }
   render() {
     return (
+      <Container>
+      <Header style ={styles.headerStyle}>
+      <Right>
+        <Icon arrow-back name='menu'
+        onPress={()=> this.props.navigation.navigate('Login')}
+        style={{color: 'white', fontSize:30}}
+       />
+       <Body>
+         <Title>Home</Title>
+       </Body>
+      </Right>
+    </Header>
       <View style ={styles.container}>
 
          <View style ={styles.quadroLogin}>
 
           <View style={styles.topoPainel}>
           <TouchableOpacity  style={styles.btnPedidos}
-          onPress={()=> this.props.navigation.navigate('SelecionarPedido')}>
+          onPress={()=> this.props.navigation.navigate('SelectProduto')}>
 
              <Text style={styles.textTopoPainel}>Faça seu Pedido </Text>
 
@@ -39,6 +51,7 @@ export default class HomeScreen extends Component {
 
          </View>
      </View>
+     </Container>
 
        );
      }

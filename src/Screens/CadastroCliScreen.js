@@ -11,12 +11,29 @@ import {
 
 import Colors from '../styles/Colors';
 
-import { Container, Content, Header, Left, Right, Icon } from 'native-base';
+import { Container, Content, Header, Left, Right, Icon, Body, Title } from 'native-base';
 
 export default class CadastroCliScreen extends Component {
+  static navigationOptions={
+  header:null
+}
   render() {
     return (
-      <Container style={styles.container}>
+      <Container >
+      <Header style ={styles.headerStyle}>
+      <Right>
+        <Icon arrow-back name='arrow-back'
+        onPress={()=> this.props.navigation.navigate('Login')}
+        style={{color: 'white', fontSize:30, }}
+       />
+       <Body>
+         <Title>Fornecedores</Title>
+       </Body>
+      </Right>
+
+    </Header>
+<View style={styles.container}>
+
       <View style ={styles.quadroLogin}>
 
           <View style={styles.topoPainel}>
@@ -51,7 +68,7 @@ export default class CadastroCliScreen extends Component {
                 onPress={()=> this.props.navigation.navigate('Login')}>
                 <Text style={styles.buttonText}> Salvar</Text>
         </TouchableOpacity>
-
+</View>
       </View>
   </Container>
       );

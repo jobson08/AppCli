@@ -12,12 +12,27 @@ import {
 
 import Colors from '../styles/Colors';
 
-import { Card, CardItem, Container, Content, Left, Right, Body, Button, Icon, CheckBox } from 'native-base';
+import { Card, Header, CardItem, Container, Content, Left, Right, Body, Button, Icon, CheckBox, Title } from 'native-base';
 
 export default class SelectProdutoScreen extends Component {
+  static navigationOptions={
+  header:null
+}
   render() {
     return (
       <Container style={styles.container}>
+
+      <Header style ={styles.headerStyle}>
+      <Right>
+        <Icon arrow-back name='arrow-back'
+        onPress={()=> this.props.navigation.navigate('Home')}
+        style={{color: 'white', fontSize:30}}
+       />
+       <Body>
+         <Title>Produto</Title>
+       </Body>
+      </Right>
+    </Header>
 
         <ScrollView>
           <Content style={styles.styleContent}>
@@ -53,7 +68,7 @@ export default class SelectProdutoScreen extends Component {
   </Card>
   <TouchableOpacity
           style={styles.button}
-          onPress={()=> this.props.navigation.navigate('Pedidos')}>
+          onPress={()=> this.props.navigation.navigate('SelectFornecedor')}>
           <Text style={styles.buttonText}> Finalizar Pedido </Text>
   </TouchableOpacity>
     </Content>
