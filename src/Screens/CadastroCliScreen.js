@@ -27,7 +27,7 @@ export default class CadastroCliScreen extends Component {
         style={{color: 'white', fontSize:30, }}
        />
        <Body>
-         <Title>Fornecedores</Title>
+         <Title>Registro</Title>
        </Body>
       </Right>
 
@@ -89,7 +89,7 @@ export default class CadastroCliScreen extends Component {
 
   quadroLogin: {
   width: 300,
-  height: 500,
+  height: 400,
   backgroundColor: 'rgba(0,0,0,0.4)',
   borderWidth: 1,
   borderColor: 'steelblue',

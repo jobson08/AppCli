@@ -62,13 +62,13 @@ export default class LoginScreen extends Component {
           </TouchableOpacity>
 
      <View style={styles.nextBtn}>
-      <Text style={styles.TextnextBtn}>fassa seu registo </Text>
+      <Text style={styles.TextnextBtn}>Faça seu registro </Text>
 
   </View>
 <View>
 
 
-    <Button rounded infor
+    <Button rounded infor style={{left:240}}
 
     onPress={() => this.props.navigation.navigate('CadastrCli')}>
       <Icon name="add"/>
@@ -92,7 +92,7 @@ container: {
 
 quadroLogin: {
 width: 300,
-height: 500,
+height: 460,
 backgroundColor: 'rgba(0,0,0,0.4)',
 borderWidth: 1,
 borderColor: 'steelblue',

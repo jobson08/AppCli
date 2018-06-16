@@ -90,8 +90,8 @@ export default class SelectProdutoScreen extends Component {
       marginRight: 15
     },
   imagens:{
-    height: 150,
-    width: 300,
+    height: 130,
+    width: 280,
     flex: 1
   },
   nomeProduto:{
