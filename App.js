@@ -15,11 +15,12 @@ import CadastroCliScreen from './src/Screens/CadastroCliScreen'
 import HomeScreen from './src/Screens/HomeScreen'
 import SelectProdutoScreen from './src/Screens/SelectProdutoScreen'
 import SelectFornecedorScreen from './src/Screens/SelectFornecedorScreen'
-
+import FinalizarPedScreen from './src/Screens/FinalizarPedScreen'
+import TabDebitoScreen from './src/Screens/TabDebitoScreen'
 export default class App extends Component {
   render() {
     return (
-      <DrawerNav />
+      <FinalizarPedScreen />
     );
   }
 }
@@ -36,6 +37,7 @@ SelectProduto: SelectProdutoScreen,
 
 SelectFornecedor: SelectFornecedorScreen,
 
+finalizarPed: FinalizarPedScreen,
 });
 
 const styles = StyleSheet.create({
