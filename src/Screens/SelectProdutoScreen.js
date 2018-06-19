@@ -12,7 +12,7 @@ import {
 
 import Colors from '../styles/Colors';
 
-import { Card, Header, CardItem, Container, Content, Left, Right, Body, Button, Icon, CheckBox, Title } from 'native-base';
+import { Card, Header, CardItem, Switch, Container, Content, Left, Right, Body, Button, Icon, CheckBox, Title } from 'native-base';
 
 export default class SelectProdutoScreen extends Component {
   static navigationOptions={
@@ -43,10 +43,10 @@ export default class SelectProdutoScreen extends Component {
       </View>
       </CardItem>
       <CardItem>
-                <Left>
-                <Text style={styles.nomeProduto}>Selecione um produto</Text>
-            <CheckBox checked={false} />
-                </Left>
+
+          <Left>
+            <Switch value={true} />
+          </Left>
 
     </CardItem>
   </Card>

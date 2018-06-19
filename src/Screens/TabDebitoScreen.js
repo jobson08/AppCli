@@ -20,7 +20,7 @@ export default class TabDebitoScreen extends Component {
       <View style ={styles.quadroLogin}>
 
           <View style={styles.topoPainel}>
-              <Text style={styles.textTopoPainel}>Fornecedor</Text>
+              <Text style={styles.textTopoPainel}>Debito</Text>
           </View>
 
       </View>

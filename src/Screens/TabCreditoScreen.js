@@ -19,7 +19,7 @@ export default class TabCreditoScree extends Component {
             <View style ={styles.quadroLogin}>
 
                 <View style={styles.topoPainel}>
-                    <Text style={styles.textTopoPainel}>Fornecedor</Text>
+                    <Text style={styles.textTopoPainel}>Credito</Text>
                 </View>
 
             </View>

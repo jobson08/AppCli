@@ -54,11 +54,12 @@ export default class SelectFornecedorScreen extends Component {
       </Right>
 
     </Header>
-
+<TouchableOpacity onPress={()=> this.props.navigation.navigate('finalizarPed')}>
       <FlatList
       renderItem={({item}) => this._renderItem(item)}
       data={fornecedor}
         />
+</TouchableOpacity>
       </Container>
     );
   }
