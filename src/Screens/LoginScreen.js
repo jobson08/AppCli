@@ -7,7 +7,12 @@ Text,
 StyleSheet,
 TextInput,
 TouchableOpacity,
+ActivityIndicator,
+Alert
 } from 'react-native';
+import { createStackNavigator} from 'react-navigation'
+
+import firebase from "firebase";
 
 import { Container, Header, Button, Icon, right, Fab } from 'native-base';
 import Colors from '../styles/Colors';
@@ -16,6 +21,82 @@ export default class LoginScreen extends Component {
   static navigationOptions={
   header:null
 }
+constructor(props){
+  super(props);
+
+  this.state={
+    email:'',
+    password:'',
+    isLoading: false,
+    message: ''
+  }
+}
+componentDidMount(){
+  const config = {
+     apiKey: "AIzaSyAQR69RijiwipS4cb3rpnRfuOKALqplX9w",
+     authDomain: "appgas-8c83e.firebaseapp.com",
+     databaseURL: "https://appgas-8c83e.firebaseio.com",
+     projectId: "appgas-8c83e",
+     storageBucket: "appgas-8c83e.appspot.com",
+     messagingSenderId: "122522277646"
+   };
+   firebase.initializeApp(config);
+}
+
+loginUser(){
+  this.setState({ isLoading:true, message: ''});
+  const { email, password } = this.state
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(user =>{
+     this.props.navigation.navigate('Home');
+   })
+
+  .catch(error =>{
+    if (error.code === 'auth/user-not-found'){
+      Alert.alert('Email invalido')
+    }
+  //  this.setState({ message: this.getMessageErro(error.code) });
+    //console.log('Usuario na encontrado', error);
+  })
+  .then(() => this.setState({ isLoading:false }));
+}
+
+getMessageErro(errorCode){
+  switch (errorCode) {
+    case 'auth/user-not-found':
+      return 'Email invalido';
+    case 'auth/wrong-password':
+      return 'Senha incorreta';
+    default:
+      return 'Error desconhecido';
+  }
+}
+
+renderButton(){
+  if ( this.isLoading )
+    return < ActivityIndicator />;
+  return(
+  <TouchableOpacity
+          style={styles.button}
+            onPress={() => this.loginUser()}>
+          <Text style={styles.buttonText}> Entrar </Text>
+  </TouchableOpacity>
+  )
+}
+
+renderMessage(){
+  const { message } = this.state;
+    if(!message)
+    return null;
+
+  return (
+    <View>
+        <Text>{message}</Text>
+    </View>
+  );
+}
+
+
   render() {
     return (
       <Container style={styles.container}>
@@ -30,24 +111,27 @@ export default class LoginScreen extends Component {
           <TextInput
            style={styles.input} underlineColorAndroid='rgba(0,0,0,0)'
            placeholder="E-mail"
+           //onChangeText={value => this.onChangeHandeler('email', value)}
+           onChangeText={email => this.setState({ email })}
          />
 
          <TextInput
            style={styles.input}
            placeholder="Senha"
-          />
+           secureTextEntry
+           //onChangeText={value => this.onChangeHandeler('password', value)}
+            onChangeText={password => this.setState({ password })}
+            />
 
     <TouchableOpacity
         style={styles.buttonEsq}
-      onPress={()=> this.props.navigation.navigate('Home')}>
+        onPress={() => this.loginUser()} >
         <Text style={styles.buttonTextEsq}> Esqueceu sua Senha ? </Text>
     </TouchableOpacity>
 
-    <TouchableOpacity
-            style={styles.button}
-              onPress={() => this.props.navigation.navigate('Home')}>
-            <Text style={styles.buttonText}> Entrar </Text>
-    </TouchableOpacity>
+
+          { this.renderButton()}
+          { this.renderMessage()}
 
           <TouchableOpacity
              style={styles.buttonfacebook}

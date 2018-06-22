@@ -6,39 +6,19 @@ import {
   Text,
   View
 } from 'react-native';
+//inicia o farebase
 
-import { createStackNavigator} from 'react-navigation'
+//fim da constate do farebase
 
-import InicialScreen from './src/Screens/InicialScreen'
-import LoginScreen from './src/Screens/LoginScreen'
-import CadastroCliScreen from './src/Screens/CadastroCliScreen'
-import HomeScreen from './src/Screens/HomeScreen'
-import SelectProdutoScreen from './src/Screens/SelectProdutoScreen'
-import SelectFornecedorScreen from './src/Screens/SelectFornecedorScreen'
-import FinalizarPedScreen from './src/Screens/FinalizarPedScreen'
-import TabDebitoScreen from './src/Screens/TabDebitoScreen'
+import StackNav from './src/Navigates/StackNav'
+
 export default class App extends Component {
-  render() {
+    render() {
     return (
-      <FinalizarPedScreen />
+      <StackNav />
     );
   }
 }
-const DrawerNav = createStackNavigator({
-//Inicial: InicialScreen,
-
-Login: LoginScreen,
-
-CadastrCli: CadastroCliScreen,
-
-Home: HomeScreen,
-
-SelectProduto: SelectProdutoScreen,
-
-SelectFornecedor: SelectFornecedorScreen,
-
-finalizarPed: FinalizarPedScreen,
-});
 
 const styles = StyleSheet.create({
   container: {
