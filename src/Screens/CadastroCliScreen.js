@@ -7,7 +7,11 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  ActivityIndicator,
+  alert
 } from 'react-native';
+import { createStackNavigator} from 'react-navigation'
+import firebase from "firebase";
 
 import Colors from '../styles/Colors';
 
@@ -16,6 +20,55 @@ import { Container, Content, Header, Left, Right, Icon, Body, Title } from 'nati
 export default class CadastroCliScreen extends Component {
   static navigationOptions={
   header:null
+}
+
+constructor(props){
+  super(props);
+
+  this.state={
+    email:'',
+    password:'',
+    isLoading: false,
+    message: ''
+  }
+}
+
+cadastroUser(){
+  this.setState({ isLoading:true, message: ''});
+  const { email, password } = this.state
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then(user =>{
+     this.setState({message: 'Sucesso'});
+   })
+
+  .catch(error =>{
+    this.setState({ message: this.getMessageErro(error.code) });
+    //console.log('Usuario na encontrado', error);
+  })
+  .then(() => this.setState({ isLoading:false }));
+}
+
+renderMessage(){
+  const { message } = this.state;
+    if(!message)
+    return null;
+
+  return (
+    <View>
+        <Text style={{color: '#0000ff', fontSize:30, }}>{message}</Text>
+    </View>
+  );
+}
+renderButton(){
+  if ( this.isLoading )
+    return < ActivityIndicator />;
+  return(
+    <TouchableOpacity
+            style={styles.button}
+          onPress={() => this.cadastroUser()}>
+            <Text style={styles.buttonText}> Salvar</Text>
+    </TouchableOpacity>
+  )
 }
   render() {
     return (
@@ -40,22 +93,20 @@ export default class CadastroCliScreen extends Component {
               <Text style={styles.textTopoPainel}>Fornecedor</Text>
           </View>
 
-             <Text style={styles.textoTela}>Entre com o seu Login</Text>
+             <Text style={styles.textoTela}>Cadastre com seu email</Text>
 
               <TextInput
                style={styles.input} underlineColorAndroid='rgba(0,0,0,0)'
                placeholder="E-mail"
+                onChangeText={email => this.setState({ email })}
              />
 
              <TextInput
                style={styles.input}
                placeholder="Senha"
+               secureTextEntry
+                onChangeText={password => this.setState({ password })}
               />
-
-              <TextInput
-                style={styles.input}
-                placeholder="Confirma Senha"
-               />
 
         <TouchableOpacity
             style={styles.buttonEsq}
@@ -63,12 +114,10 @@ export default class CadastroCliScreen extends Component {
             <Text style={styles.buttonTextEsq}> Esqueceu sua Senha ? </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-                style={styles.button}
-                onPress={()=> this.props.navigation.navigate('Login')}>
-                <Text style={styles.buttonText}> Salvar</Text>
-        </TouchableOpacity>
+  { this.renderButton()}
+{ this.renderMessage()}
 </View>
+
       </View>
   </Container>
       );

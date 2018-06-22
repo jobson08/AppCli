@@ -15,7 +15,6 @@ export default class Firebase {
 
   static init(){
     firebase.initializeApp(config);
-    Firebase.auth = firebase.auth();
   }
 
 }

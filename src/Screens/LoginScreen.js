@@ -54,6 +54,9 @@ loginUser(){
   .catch(error =>{
     if (error.code === 'auth/user-not-found'){
       Alert.alert('Email invalido')
+    }else{
+      (error.code === 'auth/wrong-password')
+        Alert.alert('Senha incorreta')
     }
   //  this.setState({ message: this.getMessageErro(error.code) });
     //console.log('Usuario na encontrado', error);

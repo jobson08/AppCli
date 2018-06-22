@@ -14,11 +14,11 @@ import TabDebitoScreen from '../Screens/TabDebitoScreen'
 const StackNav = createStackNavigator({
 //Inicial: InicialScreen,
 
-Login: LoginScreen,
+//Login: LoginScreen,
 
-CadastrCli: CadastroCliScreen,
+//CadastrCli: CadastroCliScreen,
 
-Home: HomeScreen,
+//Home: HomeScreen,
 
 SelectProduto: SelectProdutoScreen,
 
