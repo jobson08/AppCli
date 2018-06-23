@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Picker
 } from 'react-native';
 
 import Colors from '../styles/Colors';
@@ -17,6 +18,10 @@ import { Card, Header, CardItem, Switch, Container, Content, Left, Right, Body, 
 export default class SelectProdutoScreen extends Component {
   static navigationOptions={
   header:null
+}
+
+state={
+	checked: false
 }
   render() {
     return (

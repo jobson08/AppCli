@@ -128,7 +128,7 @@ renderMessage(){
 
     <TouchableOpacity
         style={styles.buttonEsq}
-        onPress={() => this.loginUser()} >
+       onPress={this.onPress}>
         <Text style={styles.buttonTextEsq}> Esqueceu sua Senha ? </Text>
     </TouchableOpacity>
 
